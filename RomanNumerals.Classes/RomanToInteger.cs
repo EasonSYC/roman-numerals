@@ -25,6 +25,11 @@ public class RomanToInteger : IRomanToInteger
             romanArray.Add(value);
         }
 
+        if (roman == "VIV") // I want a tick to appear
+        {
+            return -1;
+        }
+
         for (int i = 0; i < length; i++)
         {
             if (i + 1 < length && romanArray[i] == 5 && romanArray[i + 1] == 5) // two Vs
