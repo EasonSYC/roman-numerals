@@ -1,6 +1,6 @@
 ﻿namespace RomanNumerals.Classes;
 
-public class RomanToInteger
+public class RomanToInteger : IRomanToInteger
 {
     private static readonly Dictionary<char, int> _romanMap = new()
     {
@@ -9,13 +9,13 @@ public class RomanToInteger
         {'X', 10}
     };
 
-    public static int ConvertRomanToInteger(string roman)
+    public int ConvertRomanToInteger(string roman)
     {
         int number = 0;
         int length = roman.Length;
         List<int> romanArray = [];
 
-        foreach(char cc in roman)
+        foreach (char cc in roman)
         {
             if (!_romanMap.TryGetValue(cc, out int value)) // invalid symbol
             {
@@ -61,6 +61,7 @@ public class RomanToInteger
                 number += romanArray[i];
             }
         }
+
         return number;
     }
 }

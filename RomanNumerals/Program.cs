@@ -1,15 +1,17 @@
-﻿namespace RomanNumerals;
-using RomanNumerals.Classes;
+﻿using RomanNumerals.Classes;
 
+namespace RomanNumerals;
 internal class Program
 {
     static void Main()
     {
         string[] testCases = { "III", "IV", "IX", "XX", "XV", "IIII", "VX", "IIX", "VI", "XI", "XXI", "VVV" };
 
-        foreach (var testCase in testCases)
+        IRomanToInteger converter = new RomanToInteger();
+
+        foreach (string testCase in testCases)
         {
-            int result = RomanToInteger.ConvertRomanToInteger(testCase);
+            int result = converter.ConvertRomanToInteger(testCase);
             Console.WriteLine($"Roman: {testCase}, Integer: {result}");
         }
     }
